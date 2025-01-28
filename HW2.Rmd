@@ -105,7 +105,7 @@ avg_rentals_workingday <- bikeshare %>%
   group_by(hr, workingday) %>%
   summarize(avg_rentals = mean(total, na.rm = TRUE))
 
-# Create single line graph
+
 ggplot(avg_rentals_workingday, aes(x = hr, y = avg_rentals, color = as.factor(workingday))) +
   geom_line(size = 1) +
   labs(
@@ -126,7 +126,7 @@ avg_ridership_9am <- bikeshare %>%
   group_by(weathersit, workingday) %>%
   summarize(avg_rentals = mean(total, na.rm = TRUE), .groups = "drop")
 
-# Create bar plot
+
 ggplot(avg_ridership_9am, aes(x = as.factor(weathersit), y = avg_rentals, fill = as.factor(workingday))) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(
